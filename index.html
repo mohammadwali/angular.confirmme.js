@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Notify for angular</title>
+    <link rel="stylesheet" href="confirmMe.css">
+</head>
+
+<body ng-controller="MyController">
+    <div>
+        Hello {{ greetMe }}
+    </div>
+    <button ng-click="click()">Delete xyz</button>
+    <confirmMe></confirmMe>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="angularConfirmMe.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    angular.element(document).ready(function() {
+        angular.module('myApp', ['angularConfirmMe'])
+            .controller('MyController', ['$scope', "ConfirmMe", function($scope, ConfirmMe) {
+                $scope.greetMe = 'World';
+                var i = 0;
+                $scope.click = function() {
+                    ConfirmMe.confirm({
+                        onConfirm: function() {
+                            alert("confirmed");
+                        },
+                        onClose: function() {
+                            alert("closed");
+                        },
+                        onCancel: function() {
+                            alert("canceled");
+                        }
+                    });
+                }
+            }]);
+        angular.bootstrap(document, ['myApp']);
+    });
+    </script>
+</body>
+
+</html>
