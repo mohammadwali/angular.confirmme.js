@@ -23,7 +23,9 @@
                 $scope.greetMe = 'World';
                 var i = 0;
                 $scope.click = function() {
+                    //all options are optional
                     ConfirmMe.confirm({
+                        message: "Do you want to use this plugin?",
                         onConfirm: function() {
                             alert("confirmed");
                         },
