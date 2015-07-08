@@ -6,7 +6,7 @@
         "Mohammad Wali <me@mohammadwali.com>"
     ],
     "moduleType": [
-        "amd",
+        "amd"
     ],
     "dependencies": {
         "angular": "~1.3.0"
